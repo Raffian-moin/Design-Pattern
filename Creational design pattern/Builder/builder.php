@@ -15,7 +15,12 @@ class GenericPC extends PC
 {
     public function __toString()
     {
-        return "Your PC is built with configurations processor: {$this->processor}";
+
+        return <<<EOD
+        Your PC is built with the following configurations:
+        Processor: {$this->processor}
+        Mother Board: {$this->motherBoard}
+        EOD;
     }
 }
 
@@ -65,6 +70,7 @@ class GenericPCBuilder
         return $this->pc;
     }
 }
+
 
 $genericPCBuilder = new GenericPCBuilder([
     "processor" => "Core i5",
