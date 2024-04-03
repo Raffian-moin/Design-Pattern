@@ -14,6 +14,8 @@ abstract class abstractHandler implements handleInterface
     public function setNext($obj)
     {
         $this->next = $obj;
+
+        return $this->next;
     }
 
     public function getNext()
@@ -42,8 +44,6 @@ class Test1 extends abstractHandler
 
         parent::handle($className);
     }
-
-
 }
 
 class Test2 extends abstractHandler
@@ -85,8 +85,7 @@ $test1 = new Test1();
 $test2 = new Test2();
 $test3 = new Test3();
 
-$test1->setNext($test2);
-$test2->setNext($test3);
+$test1->setNext($test2)->setNext($test3);
 
 $test1->handle('Test2');
 
